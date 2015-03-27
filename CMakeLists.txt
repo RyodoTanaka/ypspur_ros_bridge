@@ -97,17 +97,18 @@ catkin_package(
 # include_directories(include)
 include_directories(
   include
+   /usr/local/include
   ${catkin_INCLUDE_DIRS}
-  /usr/local/include
+)
+
+link_directories(
+  /usr/local/lib
 )
 
 ## Declare a cpp library
 # add_library(nishidalab_ypspur_driver
-#   src/${PROJECT_NAME}/nishidalab_ypspur_driver.cpp
-  
+#   src/${PROJECT_NAME}/nishidalab_ypspur_driver.cpp  
 # )
-
-link_directories(/usr/local/lib)
 
 ## Declare a cpp executable
 add_executable(nishidalab_ypspur_driver_node src/nishidalab_ypspur_driver_node.cpp)
@@ -116,10 +117,12 @@ add_executable(nishidalab_ypspur_odom_publisher_node src/nishidalab_ypspur_odom_
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 add_dependencies(
-nishidalab_ypspur_driver_node nishidalab_ypspur_driver_generate_messages_cpp
+  nishidalab_ypspur_driver_node 
+  nishidalab_ypspur_driver_generate_messages_cpp
 )
 add_dependencies(
-nishidalab_ypspur_odom_publisher_node nishidalab_odom_publisher_node_generate_messages_cpp
+  nishidalab_ypspur_odom_publisher_node 
+  nishidalab_odom_publisher_node_generate_messages_cpp
 )
 
 
@@ -131,8 +134,8 @@ target_link_libraries(
 )
 target_link_libraries(
   nishidalab_ypspur_odom_publisher_node
-  ${catkin_LIBRARIES}
   ypspur
+  ${catkin_LIBRARIES}
 )
 
 
