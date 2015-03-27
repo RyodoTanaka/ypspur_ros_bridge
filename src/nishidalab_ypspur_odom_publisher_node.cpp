@@ -22,6 +22,9 @@ int main(int argc, char** argv){
   // loop rate is 25.0 [Hz]
   ros::Rate r(25.0);
 
+  double x, y, th;
+  double vx, vth;
+
   ///////////////////////////////////////////////////
   // LOOP START
   ///////////////////////////////////////////////////
@@ -30,10 +33,15 @@ int main(int argc, char** argv){
     NlabYspurOdomPub.current_time = ros::Time::now();
     
     // Get odometory pose information
-    Spur_get_pos_GL( &NlabYspurOdomPub.x, &NlabYspurOdomPub.y, &NlabYspurOdomPub.th );
+    Spur_get_pos_GL(&x, &y, &th);//&NlabYspurOdomPub.x, &NlabYspurOdomPub.y, &NlabYspurOdomPub.th );
+    NlabYspurOdomPub.x = x;
+    NlabYspurOdomPub.y = y;
+    NlabYspurOdomPub.th = th;
 
     // get current velocity
-    Spur_get_vel( &NlabYspurOdomPub.vx, &NlabYspurOdomPub.vth );
+    Spur_get_vel(&vx, &vth);//&NlabYspurOdomPub.vx, &NlabYspurOdomPub.vth );
+    NlabYspurOdomPub.vx = vx;
+    NlabYspurOdomPub.vth = vth;
     NlabYspurOdomPub.vy = 0;
 
     // TF transform section -----------------------------------------------------------

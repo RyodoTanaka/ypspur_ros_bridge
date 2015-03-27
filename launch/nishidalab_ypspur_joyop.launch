@@ -1,11 +1,7 @@
 <launch>
 
-<!-- joy_node -->
-<node pkg="joy" type="joy_node" name="joy_node">
-  <param name="dev" value="/dev/input/js0" />
-  <param name="deadzone" value="0.12" />
-  <param name="autorepeat_rate" value="25" />
-</node>
+<!-- nishidalab_ypspur_joy_controler -->
+<include file="$(find nishidalab_ypspur_joy_controler)/launch/nishidalab_ypspur_joy_controler.launch" />
 
 <!-- nishidalab_ypspur_driver -->
 <node pkg="nishidalab_ypspur_driver" type="nishidalab_ypspur_driver_node" name="nishidalab_ypspur_driver">
