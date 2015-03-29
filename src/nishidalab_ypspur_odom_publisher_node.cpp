@@ -30,16 +30,9 @@ int main(int argc, char** argv){
     
     // Get odometory pose information
     Spur_get_pos_GL(&NlabYspurOdomPub.x, &NlabYspurOdomPub.y, &NlabYspurOdomPub.th);
-    NlabYspurOdomPub.x = NlabYspurOdomPub.x;
-    NlabYspurOdomPub.y = NlabYspurOdomPub.y;
-    NlabYspurOdomPub.th = NlabYspurOdomPub.th;
 
     // get current velocity
     Spur_get_vel(&NlabYspurOdomPub.vx, &NlabYspurOdomPub.vth);
-    NlabYspurOdomPub.vx = NlabYspurOdomPub.vx;
-    NlabYspurOdomPub.vy = NlabYspurOdomPub.vy;
-    NlabYspurOdomPub.vth = NlabYspurOdomPub.vth;
-
 
     // TF transform section -----------------------------------------------------------
     //since all odometry is 6DOF we'll need a quaternion created from yaw

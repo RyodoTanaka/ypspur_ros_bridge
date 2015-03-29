@@ -1,0 +1,10 @@
+<launch>
+
+  <node pkg="hokuyo3d" type="hokuyo3d" name="hokuyo3d" >
+    <param name="ip" value="192.168.0.10" />
+    <!-- <remap from="hokuyo3d/hokuyo_cloud2" to="base_scan" /> -->
+  </node>
+
+  <node pkg="scanner_tf" type="scanner_tf_node" name="scanner_tf" />
+
+</launch>
