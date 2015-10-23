@@ -1,17 +1,14 @@
 <launch>
 
-<!-- nishidalab_ypspur_joy_controler -->
-<include file="$(find nishidalab_ypspur_joy_controler)/launch/nishidalab_ypspur_joy_controler.launch" />
+  <!-- nishidalab_ypspur_joy_controler -->
+  <include file="$(find nishidalab_ypspur_joy_controler)/launch/nishidalab_ypspur_joy_controler.launch" />
 
-<!-- nishidalab_ypspur_driver -->
-<node pkg="nishidalab_ypspur_driver" type="nishidalab_ypspur_driver_node" name="nishidalab_ypspur_driver">
-  <rosparam command="load" ns="/nishidalab_ypspur" file="$(find nishidalab_ypspur_driver)/config/nishidalab_ypspur_driver.yaml" />
-</node>
+  <!-- nishidalab_ypspur_driver -->
+  <node pkg="nishidalab_ypspur_driver" type="nishidalab_ypspur_driver_node" name="nishidalab_ypspur_driver">
+    <rosparam command="load" ns="/nishidalab_ypspur" file="$(find nishidalab_ypspur_driver)/config/nishidalab_ypspur_driver.yaml" />
+  </node>
 
-<!-- nishidalab_ypspur_odom_publisher -->
-<node pkg="nishidalab_ypspur_driver" type="nishidalab_ypspur_odom_publisher_node" name="nishidalab_ypspur_odom_publisher" />
-
-<!-- rviz -->
-<node pkg="rviz" type="rviz" name="rviz" />
+  <!-- nishidalab_ypspur_odom_publisher -->
+  <node pkg="nishidalab_ypspur_driver" type="nishidalab_ypspur_odom_publisher_node" name="nishidalab_ypspur_odom_publisher" />
 
 </launch>

@@ -1,0 +1,30 @@
+<launch>
+    <arg name="scanner" default="hokuyo3d" />
+
+    <!-- run pointcloud_to_laserscan node -->
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+
+        <remap from="cloud_in" to="$(arg scanner)/hokuyo_cloud2"/>
+        <remap from="scan" to="base_scan"/>
+        <rosparam>
+            #target_frame: # Leave disabled to output scan in pointcloud frame
+            transform_tolerance: 0.01
+            min_height: 0.0
+            max_height: 0.0
+
+            angle_min: -1.5708 # -M_PI/2
+            angle_max: 1.5708 # M_PI/2
+            angle_increment: 0.0044 # M_PI/360.0/2.0
+            scan_time: 0.05
+            range_min: 0.30
+            range_max: 8.0
+            use_inf: true
+
+            # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+            # 0 : Detect number of cores
+            # 1 : Single threaded
+            # 2->inf : Parallelism level
+            concurrency_level: 0
+        </rosparam>
+    </node>
+</launch>
