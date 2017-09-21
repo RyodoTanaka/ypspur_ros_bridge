@@ -1,10 +1,10 @@
-#Nishida Lab's YP-Spur Robot Driver
-###About
+# Nishida Lab's YP-Spur Robot Driver
+### About
 西田研究室のYP-Spurロボットを動かすためのパッケージです。  
 このパッケージでは、速度指令(並進速度、角速度)によるロボットの駆動と、  
 オドメトリの計算結果の配信(TFを含む)を行っています。
 
-###Installation
+### Installation
 git cloneでインストールして下さい。
 
 ```bash
@@ -19,7 +19,7 @@ cd <catkin_ws>/src
 git clone https://github.com/RyodoTanakanishidalab_ypspur_joy_controler.git
 ```
 
-###Usage
+### Usage
 まず最初に、`ypspur-coordinator`を起動する必要があります。ロボットとUSB接続が完了したら、以下のコマンドでそれを実行しましょう。
 
 ```bash
