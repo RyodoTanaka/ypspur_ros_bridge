@@ -1,0 +1,12 @@
+<launch>
+  <!-- ypspur_ros_bridge_driver -->
+  <node pkg="ypspur_ros_bridge" type="ypspur_ros_bridge_driver_node" name="ypspur_ros_bridge_driver">
+    <rosparam command="load" ns="ypspur_ros_bridge" file="$(find ypspur_ros_bridge)/config/driver_example.yaml" />
+  </node>
+
+  <!-- ypspur_ros_bridge_odom_publisher -->
+  <node pkg="ypspur_ros_bridge" type="ypspur_ros_bridge_odom_publisher_node" name="ypspur_ros_bridge_odom_publisher">
+    <rosparam command="load" ns="ypspur_ros_bridge" file="$(find ypspur_ros_bridge)/config/odom_example.yaml"/>
+  </node>
+
+</launch>
