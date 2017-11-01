@@ -1,0 +1,4 @@
+left_wheel: "left_wheel_joint"
+right_wheel: "right_wheel_joint"
+frame_id: "odom"
+child_frame_id: "base_footprint"
