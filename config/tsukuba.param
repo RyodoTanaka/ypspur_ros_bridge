@@ -1,0 +1,40 @@
+VERSION 4
+COUNT_REV 400
+VOLT 24
+CYCLE 0.001
+GEAR 45 # GEAR ratio*3
+MOTOR_R 0.75
+MOTOR_PHASE 3
+TORQUE_FINENESS 0.000001
+
+RADIUS[0] 0.1469 #【要変更】 車体のサイズに合わせる
+RADIUS[1] -0.1469 # 【要変更】 車体のサイズに合わせる
+TREAD -0.4748 # 【要変更】 車体のサイズに合わせる
+CONTROL_CYCLE 0.015
+TORQUE_MAX 0.3# 【要変更】 (0.5)これよりも低くしないとモータが破損する恐れあり！
+TORQUE_LIMIT 0.2 # 【要変更】 (0.4)これよりも低くしないとモータが破損する恐れあり！
+
+MAX_VEL 0.6 # 【要変更】 0.8ぐらいが限界?
+MAX_W 2.355 【要変更】 この値(3.14)の75%ぐらい?
+MAX_ACC_V 1.125 【要変更】 この値(1.5)の75%ぐらい?
+MAX_ACC_W 3.14 # 【要変更】 この値(6.28)の50%ぐらい?
+MAX_CENTRI_ACC 2.45
+
+L_C1 0.01
+L_K1 800
+L_K2 300
+L_K3 200
+L_DIST 0.6
+
+INTEGRAL_MAX 0.05
+MOTOR_VC 800 #630.0 # 【要変更】 モータから異音or発信する場合は下値とともに変更
+MOTOR_TC 0.0114 #0.01515 【要変更】 モータから異音or発信する場合は上値とともに変更
+MOTOR_M_INERTIA 0
+TIRE_M_INERTIA 0.02
+MASS 20
+MOMENT_INERTIA 1.8
+
+GAIN_KP 130
+GAIN_KI 1024
+TORQUE_VISCOS 0.00001
+TORQUE_NEWTON 0.00200
