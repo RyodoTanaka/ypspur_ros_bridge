@@ -1,6 +1,0 @@
-<launch>
-  <include file="$(find nishidalab_ypspur_driver)/launch/nishidalab_ypspur_joyop.launch" />
-  <include file="$(find nishidalab_ypspur_driver)/launch/hokuyo3d.launch" />
-  <include file="$(find nishidalab_ypspur_driver)/launch/gmapping.launch" />
-  <include file="$(find nishidalab_ypspur_driver)/launch/octomap_server.launch" />
-</launch>

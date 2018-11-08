@@ -1,34 +1,38 @@
-# Nishida Lab's YP-Spur Robot Driver
-### About
-西田研究室のYP-Spurロボットを動かすためのパッケージです。  
-このパッケージでは、速度指令(並進速度、角速度)によるロボットの駆動と、  
-オドメトリの計算結果の配信(TFを含む)を行っています。
+# ypspur_ros_bridge
+## About
+This package provides the bridge to use ypspur with ROS.  
+With this package, you can send `cmd_vel` message and get `odom` message.
 
-### Installation
-git cloneでインストールして下さい。
-
+## Installation
+### 1. git clone
 ```bash
-cd <catkin_ws>/src
-git clone https://github.com/RyodoTanaka/nishidalab_ypspur_driver.git
+$ cd <catkin_ws>/src
+$ git clone https://github.com/RyodoTanaka/ypspur_ros_bridge.git
 ```
 
-また、現段階(2015/03/27)では、ジョイスティックによる動作のみができるようになっています。なので、そのパッケージもインストールして下さい。
-
+### 2. rosdep
 ```bash
-cd <catkin_ws>/src
-git clone https://github.com/RyodoTanakanishidalab_ypspur_joy_controler.git
+$ cd <catkin_ws>
+$ rosdep install -i -y -r --from-paths src --ignore-src
 ```
 
-### Usage
-まず最初に、`ypspur-coordinator`を起動する必要があります。ロボットとUSB接続が完了したら、以下のコマンドでそれを実行しましょう。
-
+### 3. build
 ```bash
-cd <nishidalab_ypspur_driver/config
-sudo sh nishidalab_ypspur_start.sh
+$ cd <catkin_ws>
+$ catkin_make
+$ source devel/setup.bash
 ```
 
-うまく行くと以下のような表示が出るはずです。
+## Usage
+### 1. start the ypspur
+First, you need to launch `ypspur-coordinator`.
+After connecting your PC and ypspur by mini-USB code, type follwing command.
+```bash
+$ cd <ypspur_ros_bridge>/script
+$ sudo sh ypspur_starter.sh
+```
 
+And you should see follwing messages, if it's succeeded.
 ```bash
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 YamabicoProject-Spur
@@ -41,12 +45,16 @@ Applying parameters.
 YP-Spur coordinator started.
 Command analyzer started.
 Trajectory control loop started.
-
 ```
 
-うまく行かない場合は、USBを挿し直した後、10秒ほど待ってからもう一度上記コマンドを実行しましょう。  
-いずれにせよここまで完了したら、ジョイスティックを使ってロボットを動かすため、launchを行います。
+If you couldn't get such messages, insert your USB plug again.  
+After 10 seconds, try to start `ypspur-coordinator`.
 
+
+### 2. launch ypspur_ros_bridge
 ```bash
-roslaunch nishidalab_ypspur_driver nishidalab_ypspur_joyop.launch
+$ roslaunch ypspur_ros_bridge ypspur_ros_bridge.launch
 ```
+
+See `ypspur_ros_bridge/launch/ypspur_ros_bridge.launch` file, for more detail.  
+And the parameter file is inside of `ypspur_ros_bridge/config/` directory.
