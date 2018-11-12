@@ -28,7 +28,7 @@ $ source devel/setup.bash
 First, you need to launch `ypspur-coordinator`.
 After connecting your PC and ypspur by mini-USB code, type follwing command.
 ```bash
-$ cd <ypspur_ros_bridge/script
+$ cd <ypspur_ros_bridge>/script
 $ sudo sh ypspur_starter.sh
 ```
 

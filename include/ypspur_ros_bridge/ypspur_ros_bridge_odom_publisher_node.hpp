@@ -75,7 +75,7 @@ YpspurROSBridgeOdomPublisher::YpspurROSBridgeOdomPublisher() :
   odom_pub = n.advertise<nav_msgs::Odometry>("odom", 10);
 
   // joint_state publisher
-  js_pub = n.advertise<sensor_msgs::JointState>("oint_states", 10);
+  js_pub = n.advertise<sensor_msgs::JointState>("joint_states", 10);
   
   
   
