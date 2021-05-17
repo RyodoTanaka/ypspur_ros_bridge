@@ -33,11 +33,6 @@ int main(int argc, char** argv){
   odom.header.stamp = YRBOdomPub.current_time;
   odom.header.frame_id = YRBOdomPub.frame_id;
   odom.child_frame_id = YRBOdomPub.child_frame_id;
-
-  js.header.stamp = YRBOdomPub.current_time;
-  js.name.push_back(YRBOdomPub.left_wheel_joint);
-  js.name.push_back(YRBOdomPub.right_wheel_joint);
-  
   
   // loop rate is 25.0 [Hz]
   ros::Rate r(25.0);
@@ -93,6 +88,9 @@ int main(int argc, char** argv){
 
     // Joint State section --------------------------------------------------------
     // at the end, we'll get the 
+    js.header.stamp = YRBOdomPub.current_time;
+    js.name.push_back(YRBOdomPub.left_wheel_joint);
+    js.name.push_back(YRBOdomPub.right_wheel_joint);
     js.position.push_back(YRBOdomPub.l_ang);
     js.position.push_back(YRBOdomPub.r_ang);
     YRBOdomPub.js_pub.publish(js);
