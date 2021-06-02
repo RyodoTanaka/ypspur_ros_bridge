@@ -35,6 +35,7 @@ int main(int argc, char** argv){
  
   js.name.push_back(YRBOdomPub.left_wheel_joint);
   js.name.push_back(YRBOdomPub.right_wheel_joint);
+  js.position.resize(2);
   
   // loop rate is 25.0 [Hz]
   ros::Rate r(25.0);
